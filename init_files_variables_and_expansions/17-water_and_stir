@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "The sum of WATER ($WATER) and STIR ($STIR) is $(echo "obase=bestchol;ibase=water;$WATER+ibase=stir;$STIR" | bc) in base bestchol."
+r=$(echo $WATER $STIR | tr '[a-z]' '[A-Z]' | tr '[A-F]' '123456789101112' | awk '{print strtonum("ibase=16;" $1) + strtonum("ibase=16;" $2)}' | tr '0123456789ABCDEF' 'bestchol'); printf "The sum of WATER (%s) and STIR (%s) is %s in base bestchol.\n" $WATER $STIR $r
+

@@ -1,3 +1,2 @@
 #!/bin/bash
-r=$(echo $WATER $STIR | tr '[a-z]' '[A-Z]' | tr '[A-F]' '123456789101112' | awk '{print strtonum("ibase=16;" $1) + strtonum("ibase=16;" $2)}' | tr '0123456789ABCDEF' 'bestchol'); printf "The sum of WATER (%s) and STIR (%s) is %s in base bestchol.\n" $WATER $STIR $r
-
+printf '%o\n' $(( 5#$( echo $WATER | tr water 01234) + 5#$( echo $STIR | tr stir. 01234 ) )) | tr 01234567 behlnort
